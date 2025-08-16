@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How It Works • Pulse Power</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="config.js"></script>
+  <script defer src="form-handler.js"></script>
+  
+<style>
+  .steps-hero{ text-align:center; margin: 10px 0 20px; }
+  .stepper{ max-width: 900px; margin: 0 auto; }
+  .step-cards{ display:grid; gap:16px; grid-template-columns: repeat(4, 1fr); }
+  .step-card{ background:#fff; border:1px solid #e6ecf5; border-radius:16px; padding:18px; text-align:center; box-shadow:0 10px 30px rgba(10,42,102,.06); }
+  .step-num{ width:44px; height:44px; margin:0 auto 10px; border-radius:999px; display:grid; place-items:center; font-weight:900; color:#fff; background:linear-gradient(135deg, #0A2A66, #11408A); }
+  .step-icon{ font-size:28px; line-height:1; }
+  .muted{ opacity:.85; }
+  .controls{ display:flex; justify-content:center; gap:10px; margin:16px 0 6px; }
+  .progress{ height:8px; background:#eef3fb; border-radius:999px; overflow:hidden; margin:0 auto 20px; max-width:500px; }
+  .progress > div{ height:100%; width:25%; background:linear-gradient(90deg,#0A2A66,#5FD0FF); transition: width .35s ease; }
+  .hidden-mobile{ display:block; }
+  .carousel{ display:none; }
+  .btn.small{ padding:10px 14px; font-size:.95rem; }
+  .note{ text-align:center; margin-top:10px; font-weight:700; }
+  .fade-in{ opacity:0; transform:translateY(10px); animation:fadeIn .6s forwards; }
+  .step-card:nth-child(1){ animation-delay:.05s }
+  .step-card:nth-child(2){ animation-delay:.15s }
+  .step-card:nth-child(3){ animation-delay:.25s }
+  .step-card:nth-child(4){ animation-delay:.35s }
+  @keyframes fadeIn{ to{ opacity:1; transform:none; } }
+  @media (max-width: 860px){
+    .step-cards{ display:none; }
+    .hidden-mobile{ display:none; }
+    .carousel{ display:block; }
+    .carousel .slide{ background:#fff; border:1px solid #e6ecf5; border-radius:16px; padding:18px; text-align:center; box-shadow:0 10px 30px rgba(10,42,102,.06); }
+    .carousel .slide .step-num{ margin:0 auto 6px; }
+    .carousel .slide .step-icon{ font-size:30px; }
+  }
+</style>
+
+</head>
+<body>
+<div class="notice">
+  <div class="container">
+    <div class="wrap">⚡ Please return the battery once fully charged!</div>
+  </div>
+</div>
+<header>
+  <div class="container">
+    <div class="navbar">
+      <a href="index.html" class="brand-stack" style="text-decoration:none;color:inherit">
+        <span class="brand">PULSE POWER</span>
+        <span class="subtitle">Battery Rental Station</span>
+      </a>
+      <nav class="links">
+        <a href="index.html">Home</a>
+        <a href="how-it-works.html" style="text-decoration:underline">How It Works</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="faq.html">FAQ</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Open menu" onclick="document.querySelector('.mobile-panel').classList.toggle('show')">☰</button>
+    </div>
+    <div class="mobile-panel">
+      <a href="index.html">Home</a>
+      <a href="how-it-works.html">How It Works</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="faq.html">FAQ</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</header>
+<main class="container">
+
+<section class="steps-hero">
+  <span class="badge">Simple 4‑step process</span>
+  <h1>How It Works</h1>
+  <p class="muted">Scan the QR code, pay, grab a battery, charge anywhere, and return to stop the timer.</p>
+</section>
+
+<section class="stepper hidden-mobile">
+  <div class="progress" aria-hidden="true"><div style="width:25%" id="progressBar"></div></div>
+  <div class="step-cards">
+    <div class="step-card fade-in">
+      <div class="step-num">1</div>
+      <div class="step-icon">📱</div>
+      <h3>Scan & Pay</h3>
+      <p class="muted">Scan the kiosk QR and choose your payment method. A $45 authorization hold is applied and released after return.</p>
+    </div>
+    <div class="step-card fade-in">
+      <div class="step-num">2</div>
+      <div class="step-icon">🔋</div>
+      <h3>Take a Battery</h3>
+      <p class="muted">A fully charged power bank pops out. Built‑in Lightning & USB‑C cables—no extra cords required.</p>
+    </div>
+    <div class="step-card fade-in">
+      <div class="step-num">3</div>
+      <div class="step-icon">⚡</div>
+      <h3>Charge On‑the‑Go</h3>
+      <p class="muted">Keep moving while your phone charges. Time is prorated to the minute at $5/hour.</p>
+    </div>
+    <div class="step-card fade-in">
+      <div class="step-num">4</div>
+      <div class="step-icon">⤴️</div>
+      <h3>Return to Any Station</h3>
+      <p class="muted">Drop the battery into any Pulse Power station. Billing stops immediately.</p>
+    </div>
+  </div>
+</section>
+
+<section class="stepper carousel" aria-label="Step-by-step carousel">
+  <div class="progress" aria-hidden="true"><div style="width:25%" id="mProgress"></div></div>
+  <div class="slide" id="slide">
+    <div class="step-num" id="snum">1</div>
+    <div class="step-icon" id="sicon">📱</div>
+    <h3 id="stitle">Scan & Pay</h3>
+    <p class="muted" id="sbody">Scan the kiosk QR and choose your payment method. A $45 authorization hold is applied and released after return.</p>
+  </div>
+  <div class="controls">
+    <button class="btn small" id="prev">Back</button>
+    <button class="btn small" id="next">Next</button>
+  </div>
+  <p class="note">Tip: Please return the battery once fully charged!</p>
+</section>
+
+<script>
+(function(){
+  var steps = [
+    {{n:1, icon:"📱", title:"Scan & Pay", body:"Scan the kiosk QR and choose your payment method. A $45 authorization hold is applied and released after return."}},
+    {{n:2, icon:"🔋", title:"Take a Battery", body:"A fully charged power bank pops out. Built‑in Lightning & USB‑C cables—no extra cords required."}},
+    {{n:3, icon:"⚡", title:"Charge On‑the‑Go", body:"Keep moving while your phone charges. Time is prorated to the minute at $5/hour."}},
+    {{n:4, icon:"⤴️", title:"Return to Any Station", body:"Drop the battery into any Pulse Power station. Billing stops immediately."}}
+  ];
+  var i = 0;
+  var snum=document.getElementById('snum'),
+      sicon=document.getElementById('sicon'),
+      stitle=document.getElementById('stitle'),
+      sbody=document.getElementById('sbody'),
+      mprog=document.getElementById('mProgress');
+  function render(){
+    var s = steps[i];
+    snum.textContent = s.n;
+    sicon.textContent = s.icon;
+    stitle.textContent = s.title;
+    sbody.textContent = s.body;
+    mprog.style.width = (25*(i+1)) + '%';
+  }
+  document.getElementById('prev').addEventListener('click', function(){ i=(i+steps.length-1)%steps.length; render(); });
+  document.getElementById('next').addEventListener('click', function(){ i=(i+1)%steps.length; render(); });
+  render();
+})();
+</script>
+
+</main>
+<footer>
+  <div class="container" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center">
+    <strong>Pulse Power</strong>
+    <div>© 2025 Pulse Power, LLC • Columbia, SC</div>
+  </div>
+</footer>
+</body>
+</html>
