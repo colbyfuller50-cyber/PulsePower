@@ -19,7 +19,7 @@
     });
 
     var locations = [
-    ["SC State Fair (Columbia)", 33.9872, -81.0120],
+    ["SC State Fair (Columbia)", 33.977972, -81.023649],
 ["USC Columbia (Main Campus)", 34.00071, -81.034814], ["USC Aiken", 33.560417, -81.719048], ["USC Beaufort (Bluffton/Hilton Head)", 32.237146, -80.860388], ["USC Upstate (Spartanburg)", 34.949567, -81.932048], ["USC Lancaster", 34.72043, -80.7709], ["USC Salkehatchie (Allendale)", 33.0079, -81.3084], ["USC Salkehatchie (Walterboro)", 32.905, -80.666], ["USC Sumter", 33.920435, -80.34147], ["USC Union", 34.71542, -81.6237], ["USC School of Medicine Greenville", 34.836, -82.349]];
 
     locations.forEach(function(item){
