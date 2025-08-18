@@ -20,7 +20,7 @@
 
     var locations = [
     ["SC State Fair (Columbia)", 33.977972, -81.023649],
-["USC Columbia (Main Campus)", 33.993815, -81.029341], ["USC Aiken", 33.573431, -81.766021], ["USC Beaufort (Bluffton/Hilton Head)", 32.303526, -80.973388], ["USC Upstate (Spartanburg)", 34.996433, -81.971133], ["USC Lancaster", 34.735950, -80.789038], ["USC Salkehatchie (Allendale)", 33.013127, -81.299221], ["USC Sumter", 33.934066, -80.3373943], ["USC School of Medicine Greenville", 34.821075, -82.411246], ["Columbiana Centre", 34.077978, -81.155304], ["Columbia Metropolitan Airport", 33.946954, -81.124857], ["Frankie's Fun Park", 34.083233, -81.155779], ["Southern Gentleman's Barbering Co. (Columbia)", 33.997941, -81.015768]];
+["USC Columbia (Main Campus)", 33.993815, -81.029341], ["USC Aiken", 33.573431, -81.766021], ["USC Beaufort (Bluffton/Hilton Head)", 32.303526, -80.973388], ["USC Upstate (Spartanburg)", 34.996433, -81.971133], ["USC Lancaster", 34.735950, -80.789038], ["USC Salkehatchie (Allendale)", 33.013127, -81.299221], ["USC Sumter", 33.934066, -80.3373943], ["USC School of Medicine Greenville", 34.821075, -82.411246], ["Columbiana Centre", 34.077978, -81.155304], ["Columbia Metropolitan Airport", 33.946954, -81.124857], ["Frankie's Fun Park", 34.083233, -81.155779], ["Southern Gentleman's Barbering Co. (Columbia)", 33.997941, -81.015768], ["Charleston City Market", 32.780785, -79.930908]];
 
     locations.forEach(function(item){
       var name = item[0], lat = item[1], lng = item[2];
